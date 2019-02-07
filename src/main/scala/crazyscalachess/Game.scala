@@ -1,0 +1,5 @@
+package crazyscalachess
+
+class Game {
+
+}
