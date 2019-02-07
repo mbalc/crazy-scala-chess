@@ -6,6 +6,9 @@ version := "0.1"
 
 scalaVersion := "2.12.8"
 
+libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.1"
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.1" % "test"
+
 libraryDependencies += "me.shadaj" %%% "slinky-core" % "0.5.2" // core React functionality, no React DOM
 libraryDependencies += "me.shadaj" %%% "slinky-web" % "0.5.2" // React DOM, HTML and SVG tags
 libraryDependencies += "me.shadaj" %%% "slinky-native" % "0.5.2" // React Native components
