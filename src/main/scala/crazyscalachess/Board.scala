@@ -4,7 +4,7 @@ import crazyscalachess.Types.Coordinates
 import crazyscalachess.movement.Position
 import crazyscalachess.piece.Piece
 
-class Board (whiteTeam: Team, blackTeam: Team) {
+class Board (var whiteTeam: Team = null, var blackTeam: Team = null) {
   val columnCount = 8
   val rowCount = 8
 

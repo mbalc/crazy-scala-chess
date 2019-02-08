@@ -1,5 +1,6 @@
 package crazyscalachess
 
-class Game {
+class Game(var board: Board) {
+
 
 }
