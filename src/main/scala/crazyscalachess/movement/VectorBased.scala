@@ -15,10 +15,10 @@ class VectorBased(baseVector: ChessVector, limit: Int = Constants.Infinity)
     position + baseVector match {
       case None => Nil
       case Some(a) =>
-        position.board.getCoordinateContent(a) match {
+        position.board.coordinateContents(a) match {
           case None => a.coordinates :: reachable(a, piece, range - 1)
           case Some(collidingPiece) =>
-            if (collidingPiece.capturable_by(piece)) {
+            if (collidingPiece.capturableBy(piece)) {
               a.coordinates :: Nil
             } else {
               Nil

@@ -4,7 +4,7 @@ import crazyscalachess.Team
 import crazyscalachess.Types.Coordinates
 import crazyscalachess.movement.{MovementStrategy, Position, StrategyCollection}
 
-class Piece(val position: Option[Position],
+class Piece(var position: Option[Position],
             val team: Team,
             val movementStrategies: List[MovementStrategy]) {
   def this(position: Option[Position],
@@ -24,7 +24,7 @@ class Piece(val position: Option[Position],
     movementStrategies
   )
 
-  def capturable_by(piece: Piece): Boolean = team != piece.team
+  def capturableBy(piece: Piece): Boolean = team != piece.team
 
   def possibleMoves: List[Coordinates] = position match {
     case None      => Nil
