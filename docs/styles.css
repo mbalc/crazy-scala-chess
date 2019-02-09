@@ -1,0 +1,38 @@
+#board-content table, th, td {
+  border: 1px solid black; }
+
+#board-content td.cell {
+  user-select: none;
+  cursor: pointer;
+  width: 55px;
+  height: 55px;
+  text-align: center;
+  font-size: 40px; }
+  #board-content td.cell.white {
+    background-color: lightgoldenrodyellow; }
+    #board-content td.cell.white:hover {
+      background-color: khaki; }
+  #board-content td.cell.black {
+    background-color: lightcoral; }
+    #board-content td.cell.black:hover {
+      background-color: crimson; }
+  #board-content td.cell.selected {
+    background-color: deepskyblue; }
+    #board-content td.cell.selected:hover {
+      background-color: dodgerblue; }
+  #board-content td.cell.possible-move {
+    background-color: skyblue; }
+    #board-content td.cell.possible-move:hover {
+      background-color: lightcyan; }
+  #board-content td.cell div.piece.team {
+    color: deeppink; }
+    #board-content td.cell div.piece.team.team-white {
+      color: aliceblue;
+      text-shadow: 2px 2px 6px #000; }
+    #board-content td.cell div.piece.team.team-black {
+      color: midnightblue;
+      text-shadow: 2px 2px 6px #aaa; }
+#board-content th.board-border {
+  background-color: lightgray; }
+
+/*# sourceMappingURL=styles.css.map */

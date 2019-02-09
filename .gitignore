@@ -1,6 +1,10 @@
-.idea
+﻿.idea
 project
-target
+/target
+/docs/target/scala-2.12/resolution-cache
+/docs/target/scala-2.12/classes
+/docs/target/scala-2.12/test-classes
+/docs/target/streams
 .sass-cache
-styles.css
-styles.css.map
+/styles.css
+/styles.css.map
