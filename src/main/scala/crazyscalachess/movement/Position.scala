@@ -9,6 +9,6 @@ class Position(val board: Board, val coordinates: Coordinates) {
       board,
       (vector._1 + coordinates._1, vector._2 + coordinates._2)
     )
-    if (board validCoordinates this) None else Some(output)
+    if (board validCoordinates output) Some(output) else None
   }
 }

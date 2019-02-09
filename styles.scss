@@ -1,4 +1,6 @@
-#board-content table, th, td {
+$CELL_DIMENSIONS: 55px;
+
+#board-content table, th, td{
   border: 1px solid black;
 }
 
@@ -21,10 +23,10 @@
     }
 
     &.selected {
-      background-color: skyblue;
+      background-color: deepskyblue;
 
       &:hover {
-        background-color: deepskyblue;
+        background-color: dodgerblue;
       }
     }
 
@@ -32,15 +34,18 @@
       background-color: skyblue;
 
       &:hover {
-        background-color: deepskyblue;
+        background-color: lightcyan;
       }
     }
 
     user-select: none;
     cursor: pointer;
+
+    width: $CELL_DIMENSIONS;
+    height: $CELL_DIMENSIONS;
   }
 
-  #board-content th.board-border {
+  & th.board-border {
     background-color: lightgray;
   }
 }

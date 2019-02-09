@@ -40,7 +40,6 @@ import slinky.web.html._
   }
 
   def renderCell(row: Int, col: Int): ReactElement = {
-    val onCellClick = props.onCellClick _
-    Cell(props.game, props, (row, col), onCellClick)
+    Cell(props, (row, col))
   }
 }
