@@ -1,8 +1,7 @@
 package crazyscalachess.chess
 import crazyscalachess.movement.Position
-import crazyscalachess.{Board, Team}
 import crazyscalachess.piece._
-
+import crazyscalachess.{Board, Team}
 
 object ChessBoardConfigurator {
   val WHITE_MAIN_ROW = 1
@@ -10,13 +9,13 @@ object ChessBoardConfigurator {
   val BLACK_PAWN_ROW = 7
   val BLACK_MAIN_ROW = 8
 
-  def pawnRow (board: Board, row: Int, team: Team): List[Pawn]
-    = (1 to board.columnCount).toList
-        .map(col => (col, row))
-        .map(coords => new Pawn(new Position(board, coords), team))
+  def pawnRow(board: Board, row: Int, team: Team): List[Pawn] =
+    (1 to board.columnCount).toList
+      .map(col => (col, row))
+      .map(coords => new Pawn(new Position(board, coords), team))
 
-  def mainPiecesRow (board: Board, row: Int, team: Team): List[Piece]
-    = new Rook(new Position(board, (1, row)), team) ::
+  def mainPiecesRow(board: Board, row: Int, team: Team): List[Piece] =
+    new Rook(new Position(board, (1, row)), team) ::
       new Knight(new Position(board, (2, row)), team) ::
       new Bishop(new Position(board, (3, row)), team) ::
       new Queen(new Position(board, (4, row)), team) ::
@@ -26,15 +25,23 @@ object ChessBoardConfigurator {
       new Rook(new Position(board, (8, row)), team) ::
       Nil
 
-  def teamWithStandardSetup (board: Board, pawnRowNumber: Int, mainPiecesRowNumber: Int): Team = {
+  def teamWithStandardSetup(board: Board,
+                            pawnRowNumber: Int,
+                            mainPiecesRowNumber: Int): Team = {
     val team = new Team()
-    val pieces = pawnRow(board, pawnRowNumber, team) ::: mainPiecesRow(board, mainPiecesRowNumber, team)
+    val pieces = pawnRow(board, pawnRowNumber, team) ::: mainPiecesRow(
+      board,
+      mainPiecesRowNumber,
+      team
+    )
     team.pieces = pieces
     team
   }
 
-  def setupWhiteTeam(board: Board): Team = teamWithStandardSetup(board, WHITE_PAWN_ROW, WHITE_MAIN_ROW)
-  def setupBlackTeam(board: Board): Team = teamWithStandardSetup(board, BLACK_PAWN_ROW, BLACK_MAIN_ROW)
+  def setupWhiteTeam(board: Board): Team =
+    teamWithStandardSetup(board, WHITE_PAWN_ROW, WHITE_MAIN_ROW)
+  def setupBlackTeam(board: Board): Team =
+    teamWithStandardSetup(board, BLACK_PAWN_ROW, BLACK_MAIN_ROW)
 
   def configuredChessBoard: Board = {
     val board = new Board()
