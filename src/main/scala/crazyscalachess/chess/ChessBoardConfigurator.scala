@@ -44,7 +44,7 @@ object ChessBoardConfigurator {
   def setupWhiteTeam(board: Board): Team =
     teamWithStandardSetup(board, WHITE_PAWN_ROW, WHITE_MAIN_ROW, Teams.WHITE, (0, 1))
   def setupBlackTeam(board: Board): Team =
-    teamWithStandardSetup(board, BLACK_PAWN_ROW, BLACK_MAIN_ROW, Teams.BLACK, (1, 0))
+    teamWithStandardSetup(board, BLACK_PAWN_ROW, BLACK_MAIN_ROW, Teams.BLACK, (0, -1))
 
   def configuredChessBoard: Board = {
     val board = new Board()
