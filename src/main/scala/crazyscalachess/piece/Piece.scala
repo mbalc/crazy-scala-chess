@@ -4,6 +4,8 @@ import crazyscalachess.Team
 import crazyscalachess.Types.Coordinates
 import crazyscalachess.movement.{Move, MovementStrategy, Position, StrategyCollection}
 
+import scala.collection.mutable
+
 class Piece(var position: Option[Position],
             val team: Team,
             val movementStrategies: List[MovementStrategy]) {
