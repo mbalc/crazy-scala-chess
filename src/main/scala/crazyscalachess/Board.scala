@@ -4,9 +4,12 @@ import crazyscalachess.Types.Coordinates
 import crazyscalachess.movement.Position
 import crazyscalachess.piece.Piece
 
+import scala.collection.mutable
 import scala.language.postfixOps
 
-class Board(var whiteTeam: Team = null, var blackTeam: Team = null) {
+class Board() {
+  var teams: mutable.MutableList[Team] = mutable.MutableList() // TODO add alternating team moves
+
   val columnCount = 8
   val rowCount = 8
 
@@ -19,14 +22,7 @@ class Board(var whiteTeam: Team = null, var blackTeam: Team = null) {
   }
 
   def coordinateContents(coordinates: Coordinates): Option[Piece] = {
-    (
-      whiteTeam getCoordinateContent coordinates,
-      blackTeam getCoordinateContent coordinates
-    ) match {
-      case (Some(piece), _) => Some(piece)
-      case (_, Some(piece)) => Some(piece)
-      case _                => None
-    }
+    teams.flatMap(_ getCoordinateContent coordinates).headOption
   }
 
   def coordinateContents(position: Position): Option[Piece] =

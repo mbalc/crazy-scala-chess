@@ -4,6 +4,8 @@ import crazyscalachess.movement.Position
 import crazyscalachess.piece._
 import crazyscalachess.{Board, Team}
 
+import scala.collection.mutable
+
 object ChessBoardConfigurator {
   val WHITE_MAIN_ROW = 1
   val WHITE_PAWN_ROW = 2
@@ -42,16 +44,27 @@ object ChessBoardConfigurator {
   }
 
   def setupWhiteTeam(board: Board): Team =
-    teamWithStandardSetup(board, WHITE_PAWN_ROW, WHITE_MAIN_ROW, Teams.WHITE, (0, 1))
+    teamWithStandardSetup(
+      board,
+      WHITE_PAWN_ROW,
+      WHITE_MAIN_ROW,
+      Teams.WHITE,
+      (0, 1)
+    )
   def setupBlackTeam(board: Board): Team =
-    teamWithStandardSetup(board, BLACK_PAWN_ROW, BLACK_MAIN_ROW, Teams.BLACK, (0, -1))
+    teamWithStandardSetup(
+      board,
+      BLACK_PAWN_ROW,
+      BLACK_MAIN_ROW,
+      Teams.BLACK,
+      (0, -1)
+    )
 
   def configuredChessBoard: Board = {
     val board = new Board()
     val whites = setupWhiteTeam(board)
     val blacks = setupBlackTeam(board)
-    board.whiteTeam = whites
-    board.blackTeam = blacks
+    board.teams = mutable.MutableList(whites, blacks)
     board
   }
 }
