@@ -5,7 +5,7 @@ import slinky.core.annotations.react
 import slinky.core.facade.ReactElement
 import slinky.web.html._
 
-@react class DisplayBoard extends StatelessComponent {
+@react class BoardJS extends StatelessComponent {
   type Props = ClientState
 
   def boardBorderCell(content: String): ReactElement =

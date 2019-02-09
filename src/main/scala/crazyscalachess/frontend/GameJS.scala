@@ -8,9 +8,6 @@ import slinky.web.html.div
   type Props = ClientState
 
   override def render(): ReactElement = {
-    div(
-      DisplayBoard(props)
-    )
+    div(BoardJS(props))
   }
 }
-
