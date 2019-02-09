@@ -2,7 +2,7 @@ package crazyscalachess.piece
 
 import crazyscalachess.Team
 import crazyscalachess.Types.Coordinates
-import crazyscalachess.movement.{MovementStrategy, Position, StrategyCollection}
+import crazyscalachess.movement.{Move, MovementStrategy, Position, StrategyCollection}
 
 class Piece(var position: Option[Position],
             val team: Team,
@@ -23,6 +23,8 @@ class Piece(var position: Option[Position],
   val movementStrategy: MovementStrategy = new StrategyCollection(
     movementStrategies
   )
+
+  val moveHistory: mutable.MutableList[Move] = mutable.MutableList()
 
   def capturableBy(piece: Piece): Boolean = team != piece.team
 

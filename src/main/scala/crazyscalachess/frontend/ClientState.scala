@@ -43,7 +43,7 @@ class ClientState(updateState: ClientState => Unit,
   }
 
   def handleMoveAttempt(piece: Piece, newCoordinates: Coordinates): Unit = {
-    piece.position = Some(new Position(game.board, newCoordinates)) // TODO move to Game, make it sophisticated
+    game.move(piece, newCoordinates)
     updateGame(None)
   }
 }
