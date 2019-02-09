@@ -40,6 +40,6 @@ import slinky.web.html._
   }
 
   def renderCell(row: Int, col: Int): ReactElement = {
-    Cell(props, (row, col))
+    CellJS(props, (row, col))
   }
 }

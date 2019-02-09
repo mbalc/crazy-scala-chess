@@ -26,8 +26,11 @@ import slinky.web.html._
       div(
         props.clientState.game.board
           .getCoordinateContent(props.coordinates) match {
-          case None        => s"None"
-          case Some(piece) => piece.getClass.getSimpleName
+          case None => ""
+          case Some(piece) =>
+            piece.getClass.getSimpleName
+              .charAt(0)
+              .toString // TODO use https://en.wikipedia.org/wiki/Chess_symbols_in_Unicode
         }
       )
     )
