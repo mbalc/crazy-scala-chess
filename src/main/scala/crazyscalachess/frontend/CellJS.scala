@@ -5,7 +5,7 @@ import slinky.core.annotations.react
 import slinky.core.facade.ReactElement
 import slinky.web.html._
 
-@react class Cell extends StatelessComponent {
+@react class CellJS extends StatelessComponent {
   case class Props(clientState: ClientState, coordinates: Coordinates)
 
   override def render(): ReactElement = {
@@ -24,14 +24,10 @@ import slinky.web.html._
       onClick := (_ => props.clientState.onCellClick(props.coordinates))
     )(
       div(
-        props.clientState.game.board
-          .getCoordinateContent(props.coordinates) match {
-          case None => ""
-          case Some(piece) =>
-            piece.getClass.getSimpleName
-              .charAt(0)
-              .toString // TODO use https://en.wikipedia.org/wiki/Chess_symbols_in_Unicode
-        }
+        PieceJS(
+          props.clientState.game.board
+            .getCoordinateContent(props.coordinates)
+        )
       )
     )
   }

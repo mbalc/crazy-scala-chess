@@ -2,8 +2,9 @@ package crazyscalachess
 import crazyscalachess.Types.{ChessVector, Coordinates}
 import crazyscalachess.piece.Piece
 
-class Team(var pieces: List[Piece] = null) {
-  def pawnDirection: ChessVector = (0, 1) // TODO for teams
+class Team(val name: String, val pawnDirection: ChessVector = (0, 1)) {
+  var pieces: List[Piece] = List[Piece]()
+
   def getCoordinateContent(coordinates: Coordinates): Option[Piece] =
     pieces.find(
       p =>

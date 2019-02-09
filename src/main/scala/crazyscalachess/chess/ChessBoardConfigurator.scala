@@ -1,4 +1,5 @@
 package crazyscalachess.chess
+import crazyscalachess.Types.ChessVector
 import crazyscalachess.movement.Position
 import crazyscalachess.piece._
 import crazyscalachess.{Board, Team}
@@ -27,8 +28,10 @@ object ChessBoardConfigurator {
 
   def teamWithStandardSetup(board: Board,
                             pawnRowNumber: Int,
-                            mainPiecesRowNumber: Int): Team = {
-    val team = new Team()
+                            mainPiecesRowNumber: Int,
+                            name: String,
+                            pawnDirection: ChessVector): Team = {
+    val team = new Team(name, pawnDirection)
     val pieces = pawnRow(board, pawnRowNumber, team) ::: mainPiecesRow(
       board,
       mainPiecesRowNumber,
@@ -39,9 +42,9 @@ object ChessBoardConfigurator {
   }
 
   def setupWhiteTeam(board: Board): Team =
-    teamWithStandardSetup(board, WHITE_PAWN_ROW, WHITE_MAIN_ROW)
+    teamWithStandardSetup(board, WHITE_PAWN_ROW, WHITE_MAIN_ROW, Teams.WHITE, (0, 1))
   def setupBlackTeam(board: Board): Team =
-    teamWithStandardSetup(board, BLACK_PAWN_ROW, BLACK_MAIN_ROW)
+    teamWithStandardSetup(board, BLACK_PAWN_ROW, BLACK_MAIN_ROW, Teams.BLACK, (1, 0))
 
   def configuredChessBoard: Board = {
     val board = new Board()

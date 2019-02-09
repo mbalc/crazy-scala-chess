@@ -10,7 +10,7 @@ import crazyscalachess.{Board, Team}
 import org.scalatest.{FlatSpec, Matchers}
 
 class PieceTest extends FlatSpec with Matchers {
-  val fakeTeam = new Team(List[Piece]())
+  val fakeTeam = new Team("fake")
   val board = new Board(fakeTeam, fakeTeam)
 
   it should "list all possible moves from its strategies" in {
