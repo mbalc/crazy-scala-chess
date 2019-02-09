@@ -16,7 +16,9 @@ libraryDependencies += "me.shadaj" %%% "slinky-hot" % "0.5.2" // Hot loading, re
 libraryDependencies += "me.shadaj" %%% "slinky-scalajsreact-interop" % "0.5.2" // Interop with japgolly/scalajs-react
 
 // optional, but recommended; enables the @react macro annotation API
-addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.0" cross CrossVersion.full)
+addCompilerPlugin(
+  "org.scalamacros" % "paradise" % "2.1.0" cross CrossVersion.full
+)
 
 enablePlugins(ScalaJSBundlerPlugin)
 
@@ -39,7 +41,7 @@ npmDevDependencies in Compile += "copy-webpack-plugin" -> "4.5.1"
 npmDevDependencies in Compile += "static-site-generator-webpack-plugin" -> "3.4.1"
 
 version in webpack := "4.5.0"
-version in startWebpackDevServer:= "3.1.3"
+version in startWebpackDevServer := "3.1.3"
 
 scalacOptions += "-P:scalajs:sjsDefinedByDefault"
 

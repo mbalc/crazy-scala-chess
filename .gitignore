@@ -1,4 +1,6 @@
 .idea
 project
 target
-
+.sass-cache
+styles.css
+styles.css.map

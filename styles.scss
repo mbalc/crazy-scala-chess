@@ -1,0 +1,46 @@
+#board-content table, th, td {
+  border: 1px solid black;
+}
+
+#board-content {
+  & td.cell {
+    &.white {
+      background-color: lightgoldenrodyellow;
+
+      &:hover {
+        background-color: khaki;
+      }
+    }
+
+    &.black {
+      background-color: lightcoral;
+
+      &:hover {
+        background-color: crimson;
+      }
+    }
+
+    &.selected {
+      background-color: skyblue;
+
+      &:hover {
+        background-color: deepskyblue;
+      }
+    }
+
+    &.possible-move {
+      background-color: skyblue;
+
+      &:hover {
+        background-color: deepskyblue;
+      }
+    }
+
+    user-select: none;
+    cursor: pointer;
+  }
+
+  #board-content th.board-border {
+    background-color: lightgray;
+  }
+}
